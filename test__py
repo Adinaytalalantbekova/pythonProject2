@@ -1,0 +1,18 @@
+# a = [10, 20]
+# b = a
+# b += [30, 40]
+# print(a)
+# print(b)
+
+
+# #
+# a = [1,2,3,None,(),[]]
+# print(len(a))
+# print(type(range(5)))
+
+def disjk(*args):
+    for i in args:
+        print(i)
+disjk(name= 'bfhg', age= '35')
+
+

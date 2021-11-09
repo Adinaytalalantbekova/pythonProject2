@@ -1,0 +1,287 @@
+
+print('Number 1')
+class Older_brother:
+    def __init__(self, name, age, height, work):
+        self.name = name
+        self.age = age
+        self.height = height
+        self.work = work
+
+    def __str__(self):
+        return f'Name: {self.name}\n' \
+               f'Age: {self.age}\n' \
+               f'Height: {self.height}\n' \
+               f'Work: {self.work}'
+
+    def work_a(self):
+        return "Я работаю в банке"
+
+    def can_talc(self):
+        return "Моя семья круче всех"
+
+
+older_brother = Older_brother(name="Нурсултан",
+                              age='29',
+                              height='175',
+                              work="Программист")
+
+print(older_brother)
+print(older_brother.work_a())
+print(older_brother.can_talc())
+
+
+class Older_sister(Older_brother):
+    def can_talc(self):
+        return 'Я старшая дочка в семье'
+
+    def work_a(self):
+        return 'Я работаю в строительной компане'
+
+    def __str__(self):
+        return super(Older_sister, self).__str__()
+
+
+older_sister = Older_sister(name="Алтынай",
+                            age='26',
+                            height='167',
+                            work="Агент")
+
+print(older_sister)
+print(older_sister.work_a())
+print(older_sister.can_talc())
+
+
+class Younger_brother(Older_brother):
+    def can_talc(self):
+        return 'Я блогадарен свою семью'
+
+    def work_a(self):
+        return 'Я пока что не работаю, я школьник'
+
+    def __str__(self):
+        return super(Younger_brother, self).__str__()
+
+
+yunger_brother = Younger_brother(name='Myrza',
+                                age='15',
+                                height='168',
+                                work='Школьник')
+
+
+print(yunger_brother)
+print(yunger_brother.work_a())
+print(yunger_brother.can_talc())
+
+
+
+class Yunger_sister(Older_sister, Younger_brother):
+    def can_talc(self):
+        return 'Я самая младшая '
+    def work_a(self):
+        return 'Я школьница '
+
+    def __str__(self):
+        return super(Yunger_sister, self).__str__()
+
+
+yunger_sister = Yunger_sister(name='Ailin',
+                              age='12',
+                              height='156',
+                              work='школ')
+
+print(yunger_sister)
+print(yunger_sister.work_a())
+print(yunger_sister.can_talc())
+
+
+
+print('Number 2')
+
+class Cat:
+    def __init__(self, name, age, color, appearance):
+        self.name = name
+        self.age = age
+        self.color = color
+        self.appearance = appearance
+
+    def __str__(self):
+        return f'Name: {self.name}\n' \
+               f'Age: {self.age}\n' \
+               f'Color:{self.color}\n' \
+               f'Appearance: {self.appearance}'
+
+    def can_talc(self):
+        return 'Говорит: мияу-мияу'
+
+    def traffic(self):
+        return 'Высоко прыгает'
+
+
+cat = Cat(name='Акуся',
+          age='2 месяц',
+          color='белый',
+          appearance='милый')
+
+
+print(cat)
+print(cat.can_talc())
+print(cat.traffic())
+
+class Dog(Cat):
+    def __str__(self):
+        return super(Dog, self).__str__()
+
+    def can_talc(self):
+        return 'Говорит: Гаф- Гаф'
+    def traffic(self):
+        return 'Пугает людей'
+
+dog = Dog(name='Шарик',
+          age='9 месяц',
+          color='черный',
+          appearance='страшный')
+
+print(dog)
+print(dog.can_talc())
+print(dog.traffic())
+
+
+class Hen(Cat):
+    def __str__(self):
+        return super(Hen, self).__str__()
+
+    def can_talc(self):
+        return 'Говорит: ко-ко-ко'
+
+    def traffic(self):
+        return 'Крыля есть но не умеет летать'
+
+
+hen = Hen(name='Курица', age='3 месяц', color='Разно светный', appearance='нормальный')
+
+print(hen)
+print(hen.can_talc())
+print(hen.traffic())
+
+
+class Horse(Cat):
+    def __str__(self):
+        return super(Horse, self).__str__()
+
+    def can_talc(self):
+        return 'Говорит: иго-го'
+
+    def traffic(self):
+        return 'Быстро бегает'
+
+horse = Horse(name="Ак куула",
+              age="3 year",
+              color="черный",
+              appearance="Большой")
+
+print(horse)
+print(horse.can_talc())
+print(horse.traffic())
+
+
+print('Number: 3')
+
+import random
+class Cinema:
+    def __init__(self, cinema_name, country, geolacation):
+        self.cinema = cinema_name
+        self.country = country
+        self.geolacation = geolacation
+        self.films_names = []
+
+    def __iadd__(self, movie):
+        print("Фильм добавлен")
+        self.films_names.append(movie)
+        print("Фильмов теперь: ", end=' ')
+        for i in self.films_names:
+            print(i, end=", ")
+        print()
+        return self
+
+    def __isub__(self, movie):
+        try:
+            self.films_names.remove(movie)
+            print("Фильм убран")
+
+            print("Фильмов теперь: ", end=' ')
+            for i in self.films_names:
+                print(i, end=", ")
+            print("")
+
+        except:
+            print("Фильма итак нет")
+        return self
+
+    def __str__(self):
+        return f'ciname name: {self.cinema}\n' \
+               f'country: {self.country}\n' \
+               f'gelacation: {self.geolacation}'
+
+    def show_price(self, movie):
+        if(self.films_names.__contains__(movie)):
+            print(f"цена на фильм {movie} {random.randint(100, 300)} сомов")
+        else:
+            print("Такого фильма нет")
+
+
+manas = Cinema("Manas", "Kyrgyztan", "Belynka" )
+manas += "Кошунаны тандабайт"
+manas += "Веном"
+
+manas.show_price("Кошунаны тандабайт")
+manas.show_price("Веном")
+
+manas -= "Веном"
+manas -= "Вава"
+manas.show_price("Веном")
+print("------Starbacks----------")
+
+
+class Starbax:
+    def __init__(self, country, geolacation, name):
+        self.country = country
+        self.gealocation = geolacation
+        self.name = name
+        self.customers = []
+        self.prices = []
+
+
+    def __add__(self, customer):
+
+        print("Для этого клиента имя: ", end=" ")
+        if len(customer) > 5:
+            self.customers.append(customer[:5])
+            print(customer[:5])
+        else:
+            self.customers.append(customer)
+            print(customer)
+        return self
+
+    def __iadd__(self,  customer):
+        price = random.randint(20, 60)
+        print(f"Цена на кофе для {customer}: {price} сом")
+        self.prices.append(price)
+        return self
+
+    def show_AllCustoms_Info(self):
+        infos = dict(zip(self.customers, self.prices))
+        return infos
+
+
+bishkekStarbacks = Starbax("Kyrgyzstan", "Ahunbaeva","Bish" )
+
+bishkekStarbacks = bishkekStarbacks + "Adinai"
+bishkekStarbacks += "Adinai"
+
+bishkekStarbacks = bishkekStarbacks + "Esen"
+bishkekStarbacks += "Esen"
+
+for customer, price in bishkekStarbacks.show_AllCustoms_Info().items():
+    print(f"{customer} - {price} сомов")
+
+

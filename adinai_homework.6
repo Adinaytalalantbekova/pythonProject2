@@ -1,0 +1,23 @@
+
+five = [1, 2, 3, 4, 5]
+ten = list(map(lambda x: x + 5, five))
+print(ten)
+ten.extend(five)
+ten.sort()
+print(ten)
+print(list(filter(lambda v: v % 2 == 0, ten)))
+print(list(filter(lambda c: c % 3 == 0, ten)))
+
+def x (lst = ten):
+        while True:
+            try:
+                index = (input('Введите индекс: '))
+                if index == 'выход':
+                        print("Выход из цикла")
+                        break
+                index = int(index)
+                print(lst[index])
+            except:
+                print('Такое число нет, ввидите индекс от 0 до', len(lst))
+print(x())
+

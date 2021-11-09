@@ -1,0 +1,47 @@
+class Tarif:
+    def __init__(self, number, name, summery):
+        self.number = number
+        self.name = name
+        self.summery = summery
+
+    def call(self):
+        return f'This number: {self.number}, can call but with restriction'
+
+    def __str__(self):
+        return f'Name: {self.name}\n' \
+               f'Number: {self.number}\n' \
+               f'summary: {self.summery}'
+
+
+number_1 = Tarif(name='Adilet', number='0774446852', summery='120')
+
+
+
+class UniCallTarif(Tarif):
+    def uni_call(self):
+        return super(UniCallTarif, self).__str__()
+
+number_2 = UniCallTarif(name="Aelina", number="0707536104", summery='1500')
+
+
+
+class UniIntarnetTarif(Tarif):
+  def uni_internet(self):
+        return 'Your Internet package is unlimited'
+
+    def __str__(self):
+        return super(UniIntarnetTarif, self).__str__()
+
+number_3 = UniIntarnetTarif(name='Georg',
+                            number='0777-123-456',
+                            summery=4000)
+
+
+class DiamonTarif(UniIntarnetTarif, UniCallTarif):
+    def __str__(self):
+        return super(DiamonTarif, self).__str__()
+
+diamond = DiamonTarif(name='adi',
+                      number='0777333444',
+                      summery=12000)
+print(diamond)

@@ -1,0 +1,7 @@
+class Mammal:
+    def move(self):
+        print('Двигается')
+
+class Kangaroo(Mammal):
+    def move(self):
+        print('Прыгает')

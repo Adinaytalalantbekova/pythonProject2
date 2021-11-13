@@ -1,0 +1,69 @@
+class Love_book:
+
+    def __init__(self, name, year, author, content):
+
+        self.name = name
+
+        self.year = year
+
+        self.author = author
+
+        self.content = content
+
+
+
+    def __str__(self):
+
+        return f'Name: {self.name}\n' \
+
+               f'Year: {self.year}\n' \
+
+               f'Author: {self.author}\n' \
+
+               f'Content: {self.content}'
+
+
+
+    def contents(self):
+
+        print('Разрешите себе быть богатым')
+
+
+
+    @property
+
+    def x(self):
+
+        print('Создавайте свою реальность')
+
+
+
+    @x.setter
+
+    def x(self, name):
+
+        self.name = 'Деньги возможности'
+
+        return name
+
+
+
+    @x.deleter
+
+    def x(self):
+
+        del self.year
+
+
+
+
+
+
+
+
+
+love_book = Love_book(name='Не ной',
+
+                      year='2017',
+
+                      author='Джен Синсеро',

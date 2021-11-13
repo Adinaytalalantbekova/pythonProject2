@@ -26,8 +26,8 @@ import re
 # # results = re.findall(searching, my_text)
 # # print(results)
 
-file_path = 'lesson2_5'
-result_file_path = 'result.txt'
+file_path = ''
+result_file_path = '../result.txt'
 file_reader = open(file_path, mode='r', encoding='Latin-1')
 results_file = open(result_file_path, mode='w', encoding='Latin-1')
 my_text_1 = file_reader.read()

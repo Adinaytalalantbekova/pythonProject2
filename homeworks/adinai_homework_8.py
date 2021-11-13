@@ -14,7 +14,7 @@ start = datetime.datetime.now()
         a = int(input())
         m = comp * comp1
         print(m)
-        with open("result.txt", "a") as res:
+        with open("../result.txt", "a") as res:
             if m == a:
                 res.write(f"{comp} * {comp1} = {a} ({m}) правилбно \n")
             if m != a:

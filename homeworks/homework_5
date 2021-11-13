@@ -1,0 +1,16 @@
+import re
+
+file_path = 'homework_5'
+result_file_path = '../result.txt'
+file_reader = open(file_path, mode='r', encoding='Latin-1')
+result_file = open(result_file_path, mode='w', encoding='Latin-1')
+my_text_2 = file_reader.read()
+
+a = r'[\w+_-]+@[\w+_-]+.[\w.]+'
+result_all = re.findall(a, my_text_2)
+
+for item in result_all:
+    print(item)
+    homework_5.write(item + '\n')
+
+print(f'Total: {str(len(result_all))}')

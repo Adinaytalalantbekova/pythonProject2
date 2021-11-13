@@ -14,14 +14,14 @@ while 1:
     a = int(input())
     m = comp * comp1
     print(m)
-    with open('result.txt', 'a') as res:
+    with open('../result.txt', 'a') as res:
         if m == a:
             res.write(f"{comp} * {comp1} = {a} ({m}) правильно\n")
         if m != a:
             res.write(f"{comp} * {comp1} = {a} ({m}) неправильно\n")
     if row1 == 0:
         end = datetime.datetime.now()
-        with open('result.txt', 'a') as res:
+        with open('../result.txt', 'a') as res:
             res.write(f'Попытки: {row}, '
                       f'имя: {name}'
                       f', время: {end - start}\n')

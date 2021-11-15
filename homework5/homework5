@@ -1,0 +1,39 @@
+import re
+
+file_path = 'moce_data'
+result_file_path = 'result.txt'
+result_file_numbers = 'result.numbers'
+result_file_fullname = 'result.fullname'
+file_reader = open(file_path, mode='r', encoding='Latin-1')
+results_file = open(result_file_path, mode='w', encoding='Latin-1')
+result_number = open(result_file_numbers, mode='w', encoding='Latin-1')
+result_fullname = open(result_file_fullname, mode='w',encoding='Latin-1')
+my_text_2 = file_reader.read()
+
+
+a = r'[\w+_-]+@[\w+_-]+.[\w.]+'
+numbers = r'#+[\w+\d+\w+]+'
+fullname = r"[A-Z+_-]\w+\s[A-Z+]\w+."
+
+results_all = re.findall(a, my_text_2)
+results = re.findall(numbers, my_text_2)
+result = re.findall(fullname, my_text_2)
+
+for item in results_all:
+    print(item)
+    results_file.write(item + '\n')
+
+for number in results:
+    print(number)
+    result_number.write(number + '\n')
+
+for fullname in result:
+    print(fullname)
+    result_fullname.write(fullname + '\n')
+
+
+print(f'Total email: {str(len(results_all))}')
+print(f'Total numbers: {str(len(results))}')
+print(f'Total fullname: {str(len(result))}')
+
+

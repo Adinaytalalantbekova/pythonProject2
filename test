@@ -1,7 +1,16 @@
-class Mammal:
-    def move(self):
-        print('Двигается')
+import re
 
-class Kangaroo(Mammal):
-    def move(self):
-        print('Прыгает')
+fail_path = 'mock_data1'
+result_fail_path = 'result.txt'
+fail_reader = open(fail_path, mode='r', encoding='Latin-1')
+results_file = open(result_fail_path, mode='w', encoding='Latin-1')
+my_text_2 = fail_reader.read()
+
+
+a = r'[\w+_-]+@[\w+_-]+.[\w.]+'
+results_all = re.findall(a, my_text_2)
+
+for item in results_all:
+    print(item)
+
+print(f'Total: {str(len(results_all))}')

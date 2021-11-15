@@ -26,7 +26,6 @@ for item in results_all:
 for number in results:
     print(number)
     result_number.write(number + '\n')
-
 for fullname in result:
     print(fullname)
     result_fullname.write(fullname + '\n')

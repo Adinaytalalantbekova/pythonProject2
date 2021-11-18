@@ -1,14 +1,24 @@
+class Desired_numbers:
+    def __init__(self, numbers, desired_num):
+        self.numbers = numbers
+        self.desired_num = desired_num
 
-numbers = [12, 34, 45, 23, 43, 1, 5, 8, 4, 3]
-desired_sum = 57
 
-def indeces(numbers, desired_sum):
-    for i in range(len(numbers)):
-        for j in range(i + 1, len(numbers)):
-            if (numbers[i] + numbers[j] == desired_sum):
-               print(i, j)
+    def indeces(self):
+        for i in range(len(self.numbers)):
+            for j in range(i + 1, len(self.numbers)):
+                if (self.numbers[i] + self.numbers[j] == self.desired_num):
+                    print(i, j)
 
-indeces(numbers, desired_sum)
+    def __str__(self):
+        return f'{self.numbers}\n' \
+               f'{self.desired_num}'
+
+number = Desired_numbers(numbers=[12, 34, 45, 23, 43, 1, 5, 8, 4, 3], desired_num= 57)
+
+print(number)
+print(number.indeces())
+
 
 
 

@@ -1,0 +1,17 @@
+import random
+numbers = [12, 34, 45, 23, 43, 1, 5, 8, 4, 3]
+desired_num = 57
+
+for i in numbers:
+    sum = random.choice(numbers)
+    sum1 = random.choice(numbers)
+    result = sum + sum1
+    if result == desired_num:
+        print(result)
+        b = (sum.__index__())
+        a = (sum1.__index__())
+        print(numbers.index(b))
+        print(numbers.index(a))
+
+
+

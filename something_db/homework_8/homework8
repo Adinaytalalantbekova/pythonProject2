@@ -1,0 +1,46 @@
+import sqlite3
+
+all_data = sqlite3.connect('all_data.db')
+sql = all_data.cursor()
+
+sql.execute(
+    """
+    CREATE TABLE data(
+    name TEXT,
+    surname TEXT,
+    age INT,
+    birthday INT,
+    phone_number INT,
+    work TEXT,
+    address TEXT,
+    email TEXT
+    )
+    """
+)
+all_data.commit()
+def allData():
+    all_data.commit()
+    user_name = input('Name: ')
+    user_surname = input('Surname: ')
+    user_age = input('Age: ')
+    user_birthday = input('Birthday: ')
+    user_number = input('Phone number: ')
+    user_work = input('Work: ')
+    user_address = input('Address: ')
+    user_email = input('Email: ')
+    sql.execute(f"SELECT name FROM data WHERE name = '{user_name}' ")
+    if sql.fetchone() is None:
+        sql.execute(f"INSERT INTO data VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                    (user_name, user_surname, user_age, user_birthday, user_number, user_work, user_address, user_email))
+        all_data.commit()
+        print('User Registered! Congrats!')
+    else:
+        print('User already exists!')
+
+    for value in sql.execute("SELECT * FROM data"):
+        print(value)
+
+allData()
+
+
+
